@@ -29,9 +29,20 @@ Write SQL code, which creates tables in the database:
 Create the following tables: 
 
 - `GeoIPCache`, which has the following columns: `ID`, `IPRange`, and `CountryID`. Our shop shows different product descriptions based on the country from which the shop is accessed. The country is determined by the client's IP address — when a client connects to the shop, it uses an external service to determine the country to which this IP belongs. The information about IP range and country ID needs to be stored in storage, which will have the best performance we can get. It is okay if we lose this data due to the server restart. 
+
+Memory 
+
 - `ProductDescription`, which has the following columns: `ID`, `Description`, `ProductID`, and `CountryID`. Our shop shows different product descriptions based on the country from which the shop is accessed. We need to have a separate table for storing those descriptions. As products rarely change, this table will have more reads than updates. We need to choose the storage engine which will allow us to get the best performance while protecting us from data loss in case of a server restart. 
+
+MyISAM
+
 - `Logs`, which has the following columns: `ID`, `Timestamp`, and `Message`. Our development team is working on a new logging system for the shop. It is not ready yet, so they just need any table that can accept the data, but they are not interested in saving it. 
+
+Blackhole 
+
 - `ProductReporting`, which has the following columns: `Date`, `ProductName`, and `Orders`. Our shop operations team needs to know how many products are ordered daily. For such an analysis, they purchased a reposting system to import raw CSV data and build a dashboard. This table will store the data, which then will be fed to that reporting system. 
+
+CSV 
 
 ## How to Test Yourself
 
