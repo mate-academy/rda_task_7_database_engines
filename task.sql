@@ -9,7 +9,7 @@ CREATE TABLE Countries (
 ) ENGINE=InnoDB;
 
 -- Create a table for caching GeoIP data (Columns: ID, IP Range, CountryID)
-CREATE TABLE GeoIP (
+CREATE TABLE GeoIPCache (
     ID INT,
     IPRagne VARCHAR(50),
     CountryID INT,
