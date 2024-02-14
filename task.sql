@@ -32,10 +32,10 @@ CREATE TABLE LogsTable (
     TimeStamp DATETIME,
     Message VARCHAR(100),
     PRIMARY KEY (ID)
-)ENGINE=BLACKHOLE;
+)ENGINE=Blackhole;
 -- Create a table for storing reporting data, which will be send to a separate application in the CSV format for analytics purposes (Columns:  Date, ProductName, Orders)
 CREATE TABLE ProductReporting (
-	Date DATE,
-    ProductName VARCHAR(50),
-    Orders INT
+	Date DATE NOT NULL,
+    ProductName VARCHAR(50) NOT NULL,
+    Orders INT NOT NULL
 )ENGINE=CSV;
