@@ -40,4 +40,4 @@ CREATE TABLE ProductReporting (
     Date DATE,
     Orders INT,
     PRIMARY KEY (ID)
-) ENGINE=MyISAM;
+) ENGINE=CSV;
