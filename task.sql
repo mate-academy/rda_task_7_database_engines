@@ -26,10 +26,10 @@ CREATE TABLE ProductDescription (
 ) ENGINE=MyISAM;
 
 -- Create a table for storing logs. For now we don't need to save them, but we need to implement functionality (Columns: ID, Time, LogRecord)
-CREATE TABLE LogsTable (
+CREATE TABLE Logs (
     ID INT,
-    LogRecord VARCHAR(100),
-    Time TIME,
+    Message VARCHAR(100),
+    Timestamp TIME,
     PRIMARY KEY (ID)
 ) ENGINE=BLACKHOLE;
 
