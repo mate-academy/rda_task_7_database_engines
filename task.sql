@@ -13,7 +13,7 @@ CREATE TABLE GeoIPCache (
     ID INT,
     IPRange INT,
     CountryID INT,
-    PRIMARY KEY (ID)
+    PRIMARY KEY (ID),
     FOREIGN KEY (CountryID) REFERENCES Countries(ID) ON DELETE SET NULL
 ) ENGINE=Memory;
 
@@ -23,7 +23,7 @@ CREATE TABLE ProductDescription (
     Description VARCHAR(200),
     ProductID INT,
     CountryID INT,
-    PRIMARY KEY (ID)
+    PRIMARY KEY (ID),
     FOREIGN KEY (CountryID) REFERENCES Countries(ID) ON DELETE SET NULL
 ) ENGINE=MyISAM;
 
