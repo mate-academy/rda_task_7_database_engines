@@ -12,10 +12,10 @@ CREATE TABLE Countries (
 CREATE TABLE GeoIPCache (
     ID INT AUTO_INCREMENT,
     IPRange VARCHAR(50),
-    CountryID INT,
+    CountryID INT NOT NULL,
     PRIMARY KEY (ID),
     FOREIGN KEY (CountryID) REFERENCES Countries(ID) ON DELETE SET NULL
-) ENGINE=Memory;
+) ENGINE=MEMORY;
 
 -- Create a table for storing product descriptions for different countries (Columns: ID, CountryID, ProductID, Description )
 CREATE TABLE ProductDescription (
