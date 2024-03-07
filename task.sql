@@ -17,7 +17,6 @@ CREATE TABLE GeoIPCache (
     FOREIGN KEY (CountryID) REFERENCES Countries(ID) ON DELETE SET NULL
 ) ENGINE=Memory;
 
-
 -- Create a table for storing product descriptions for different countries (Columns: ID, CountryID, ProductID, Description )
 CREATE TABLE ProductDescription (
     ID INT,
@@ -41,5 +40,4 @@ CREATE TABLE ProductReporting (
     Date DATE,
     ProductName VARCHAR(50),
     Orders INT,
-    PRIMARY KEY (Date, ProductName)
 ) ENGINE=CSV;
