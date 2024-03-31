@@ -4,7 +4,7 @@ USE ShopDB;
 -- Create a table to store countries 
 CREATE TABLE Countries (
     ID INT AUTO_INCREMENT PRIMARY KEY,
-    Name VARCHAR(50),
+    Name VARCHAR(50)
 ) ENGINE=InnoDB;
 
 -- Create a table for caching GeoIP data (Columns: ID, IP Range, CountryID)
