@@ -11,7 +11,7 @@ CREATE TABLE Countries (
 CREATE TABLE GeoIP (
     ID INT AUTO_INCREMENT PRIMARY KEY,
     Name VARCHAR(50),
-    Range VARCHAR(50),
+    IPRange VARCHAR(50),
     CountryID INT,
         FOREIGN KEY (CountryID) REFERENCES Countries(ID) ON DELETE NO ACTION
 ) ENGINE=Memory;
