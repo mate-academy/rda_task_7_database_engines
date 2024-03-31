@@ -8,9 +8,8 @@ CREATE TABLE Countries (
 ) ENGINE=InnoDB;
 
 -- Create a table for caching GeoIP data (Columns: ID, IP Range, CountryID)
-CREATE TABLE GeoIP (
+CREATE TABLE GeoIPCache (
     ID INT AUTO_INCREMENT PRIMARY KEY,
-    Name VARCHAR(50),
     IPRange VARCHAR(50),
     CountryID INT,
         FOREIGN KEY (CountryID) REFERENCES Countries(ID) ON DELETE NO ACTION
@@ -19,7 +18,6 @@ CREATE TABLE GeoIP (
 -- Create a table for storing product descriptions for different countries (Columns: ID, CountryID, ProductID, Description )
 CREATE TABLE ProductDescription (
     ID INT AUTO_INCREMENT PRIMARY KEY,
-    Name VARCHAR(50),
     CountryID INT,
         FOREIGN KEY (CountryID) REFERENCES Countries(ID) ON DELETE NO ACTION,
     ProductID INT,
