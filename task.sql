@@ -36,7 +36,7 @@ CREATE TABLE Logs (
 ) ENGINE=Blackhole;
 
 -- Create a table for storing reporting data, which will be send to a separate application in the CSV format for analytics purposes (Columns:  Date, ProductName, Orders)
-CREATE TABLE Reporting (
+CREATE TABLE Reports (
     ProductName VARCHAR(50),
 	Date DATE,
     Orders INT
