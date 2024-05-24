@@ -9,7 +9,7 @@ CREATE TABLE Countries (
 ) ENGINE=InnoDB;
 
 -- Create a table for caching GeoIP data (Columns: ID, IP Range, CountryID)
-CREATE TABLE GeoIP (
+CREATE TABLE GeoIPCache (
     ID INT,
     IPRange INT,
     CountryID INT,
@@ -36,7 +36,7 @@ CREATE TABLE Logs (
 ) ENGINE=Blackhole;
 
 -- Create a table for storing reporting data, which will be send to a separate application in the CSV format for analytics purposes (Columns:  Date, ProductName, Orders)
-CREATE TABLE Reports (
+CREATE TABLE ProductReporting (
     ProductName VARCHAR(50) NOT NULL,
 	Date DATE NOT NULL,
     Orders INT NOT NULL
