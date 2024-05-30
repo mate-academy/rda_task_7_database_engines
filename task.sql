@@ -37,7 +37,7 @@ CREATE TABLE LogsTable (
 
 -- Create a table for storing reporting data, which will be send to a separate application in the CSV format for analytics purposes (Columns:  Date, ProductName, Orders)
 CREATE TABLE ProductReporting (
-    Date DATE,
-    ProductName VARCHAR(50),
-    Orders VARCHAR(100)
+    Date DATE NOT NULL,
+    ProductName VARCHAR(50) NOT NULL,
+    Orders VARCHAR(100) NOT NULL
 ) ENGINE=CSV;
