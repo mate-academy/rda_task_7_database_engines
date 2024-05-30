@@ -8,12 +8,11 @@ CREATE TABLE Countries (
     PRIMARY KEY (ID)
 ) ENGINE=InnoDB;
 
--- Create a table for caching GeoIP data (Columns: ID, IP Range, CountryID)
 CREATE TABLE GeoIPCache (
     ID INT,
     IPRange VARCHAR(50),
     CountryID INT,
-    FOREIGN KEY (CountryID) REFERENCES Countries(ID) NO DELETE ON ACTION,
+    FOREIGN KEY (CountryID) REFERENCES Countries(ID) ON DELETE NO ACTION,
     PRIMARY KEY (ID)
 ) ENGINE=MEMORY;
 
@@ -23,7 +22,7 @@ CREATE TABLE ProductDescription (
     CountryID INT,
     ProductID INT,
     Description VARCHAR(100),
-    FOREIGN KEY (CountryID) REFERENCES Countries(ID) NO DELETE ON ACTION,
+    FOREIGN KEY (CountryID) REFERENCES Countries(ID) ON DELETE NO ACTION,
     PRIMARY KEY (ID)
 ) ENGINE=MyISAM;
 
