@@ -8,10 +8,10 @@ CREATE TABLE Countries (
     PRIMARY KEY (ID)
 ) ENGINE=InnoDB;
 
--- Create a table for caching GeoIP data (Columns: ID, IPRange, CountryID)
+-- Create a table for caching GeoIP data (Columns: ID, IP Range, CountryID)
 CREATE TABLE GeoIPCache (
     ID INT NOT NULL AUTO_INCREMENT,
-    IPRange VARCHAR(50) NOT NULL,
+    `IP Range` VARCHAR(50) NOT NULL,
     CountryID INT NOT NULL,
     PRIMARY KEY (ID)
 ) ENGINE=MEMORY;
@@ -25,11 +25,11 @@ CREATE TABLE ProductDescription (
     PRIMARY KEY (ID)
 ) ENGINE=InnoDB;
 
--- Create a table for storing logs. For now we don't need to save them, but we need to implement functionality (Columns: ID, Timestamp, Message)
+-- Create a table for storing logs. For now we don't need to save them, but we need to implement functionality (Columns: ID, Time, LogRecord)
 CREATE TABLE Logs (
     ID INT NOT NULL AUTO_INCREMENT,
-    Timestamp DATETIME NOT NULL,
-    Message TEXT NOT NULL,
+    Time DATETIME NOT NULL,
+    LogRecord TEXT NOT NULL,
     PRIMARY KEY (ID)
 ) ENGINE=BLACKHOLE;
 
