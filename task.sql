@@ -17,7 +17,7 @@ CREATE TABLE GeoIPCache (
 
 CREATE TABLE ProductDescription (
     ID INT AUTO_INCREMENT,
-    Description TEXT,
+    Description VARCHAR(1000),
     ProductID INT,
     CountryID INT,
     PRIMARY KEY (ID)
