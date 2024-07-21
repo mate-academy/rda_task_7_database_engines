@@ -23,10 +23,10 @@ CREATE TABLE ProductDescription (
     ProductID INT NOT NULL,
     Description TEXT NOT NULL,
     PRIMARY KEY (ID)
-) ENGINE=InnoDB;
+) ENGINE=MyISAM;
 
 -- Create a table for storing logs. For now we don't need to save them, but we need to implement functionality (Columns: ID, Time, LogRecord)
-CREATE TABLE Logs (
+CREATE TABLE LogsTable (
     ID INT NOT NULL AUTO_INCREMENT,
     Time DATETIME NOT NULL,
     LogRecord TEXT NOT NULL,
