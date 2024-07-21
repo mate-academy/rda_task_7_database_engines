@@ -8,8 +8,6 @@ CREATE TABLE Countries (
     PRIMARY KEY (ID)
 ) ENGINE=InnoDB;
 
-USE ShopDB;
-
 CREATE TABLE GeoIPCache (
     ID INT AUTO_INCREMENT,
     IPRange VARCHAR(50),
