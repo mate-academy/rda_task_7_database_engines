@@ -44,10 +44,3 @@ CREATE TABLE ProductReporting(
     ProductName VARCHAR(50) NOT NULL,
     Orders VARCHAR(200) NOT NULL
 )ENGINE = CSV;
-
-
-
-
-
-
-
