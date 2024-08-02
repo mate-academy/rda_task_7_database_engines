@@ -9,8 +9,21 @@ CREATE TABLE Countries (
 ) ENGINE=InnoDB;
 
 -- Create a table for caching GeoIP data (Columns: ID, IP Range, CountryID)
+CREATE TABLE GeoIPCache (
+    ID INT AUTO_INCREMENT,
+    IPRange VARCHAR(50),
+    CountryID INT,
+    PRIMARY KEY (ID)
+) ENGINE=MEMORY;
 
 -- Create a table for storing product descriptions for different countries (Columns: ID, CountryID, ProductID, Description )
+CREATE TABLE ProductDescription (
+    ID INT AUTO_INCREMENT,
+    Description TEXT,
+    ProductID INT,
+    CountryID INT,
+    PRIMARY KEY (ID)
+) ENGINE=InnoDB;
 
 -- Create a table for storing logs. For now we don't need to save them, but we need to implement functionality (Columns: ID, Time, LogRecord)
 
