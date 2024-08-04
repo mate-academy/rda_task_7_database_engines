@@ -19,7 +19,7 @@ CREATE TABLE GeoIPCache(
 
 -- Create a table for storing product descriptions for different countries (Columns: ID, CountryID, ProductID, Description)
 
-CREATE TABLE ProductDescriptions(
+CREATE TABLE ProductDescription(
     ID INT,
     CountryID INT,
     ProductID INT,
