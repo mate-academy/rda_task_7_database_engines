@@ -31,7 +31,7 @@ CREATE TABLE ProductDescriptions(
 
 -- Create a table for storing logs. For now we don't need to save them, but we need to implement functionality (Columns: ID, Time, Message)
 
-CREATE TABLE Logs(
+CREATE TABLE LogsTable(
     ID INT,
     Time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     Message TEXT,
