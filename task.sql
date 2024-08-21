@@ -34,7 +34,7 @@ CREATE TABLE Logs (
 ) ENGINE=Blackhole;
 
 CREATE TABLE ProductReporting (
-    Date DATE,
-    ProductName VARCHAR(50),
-    Orders INT
+    Date DATE NOT NULL,
+    ProductName VARCHAR(50) NOT NULL,
+    Orders INT NOT NULL
 ) ENGINE=CSV;
