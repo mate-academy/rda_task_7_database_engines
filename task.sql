@@ -31,11 +31,11 @@ CREATE TABLE Logs (
     ID INT,
     Timestamp TIME,
     LogRecord VARCHAR(255)
-) ENGINE=Blackhole
+) ENGINE=Blackhole;
 
 -- Create a table for storing reporting data, which will be send to a separate application in the CSV format for analytics purposes (Columns:  Date, ProductName, Orders)
 CREATE TABLE ProductReporting (
     Date DATE NOT NULL,
     ProductName VARCHAR(50) NOT NULL,
     Orders INT NOT NULL
-) ENGINE=CSV
+) ENGINE=CSV;
