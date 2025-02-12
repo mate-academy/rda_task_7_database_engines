@@ -1,8 +1,5 @@
 CREATE DATABASE ShopDB; 
 USE ShopDB; 
-
-ALTER TABLE Countries ENGINE = InnoDB;
-
 -- Create a table to store countries 
 CREATE TABLE Countries (
     ID INT,
