@@ -24,8 +24,7 @@ Create table ProductDescription(
     ProductID INT not null,
     Description varchar(100),
     PRIMARY KEY (ID),
-    foreign key (CountryID) REFERENCES Countries (ID) ON DELETE NO ACTION,
-    foreign key (ProductID) REFERENCES Products (ID) ON DELETE NO ACTION
+    foreign key (CountryID) REFERENCES Countries (ID) ON DELETE NO ACTION
 ) engine=MyISAM;
 -- Create a table for storing logs. For now we don't need to save them, but we need to implement functionality (Columns: ID, Time, LogRecord)
 create table Logs(
