@@ -42,5 +42,5 @@ create table ProductReporting (
 	ID int NOT NULL,
     Date date NOT NULL,
     ProductName varchar(50) NOT NULL,
-    Orders varchar(50) NOT NULL
+    Orders int NOT NULL
 ) engine=CSV;
