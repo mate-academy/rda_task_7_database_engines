@@ -58,7 +58,7 @@ CREATE TABLE ProductDescription (
 -- Таблиця Logs
 -- Зберігати дані не обов'язково, просто приймати → ENGINE=BLACKHOLE
 CREATE TABLE Logs (
-    ID INT,
+    ID INT PRIMARY KEY,
     Timestamp DATETIME,
     Message TEXT
 ) ENGINE=BLACKHOLE;
