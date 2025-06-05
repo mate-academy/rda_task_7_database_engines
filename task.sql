@@ -1,17 +1,72 @@
-CREATE DATABASE ShopDB; 
-USE ShopDB; 
+DROP DATABASE IF EXISTS ShopDB;
 
--- Create a table to store countries 
+-- Створення бази даних та вибір її
+CREATE DATABASE ShopDB;
+USE ShopDB;
+
+-- Таблиця країн (потрібна для зв'язків)
 CREATE TABLE Countries (
-    ID INT,
-    Name VARCHAR(50),
-    PRIMARY KEY (ID)
+    ID INT PRIMARY KEY,
+    Name VARCHAR(50)
 ) ENGINE=InnoDB;
 
--- Create a table for caching GeoIP data (Columns: ID, IP Range, CountryID)
+-- Таблиця складів
+CREATE TABLE Warehouses (
+    ID INT PRIMARY KEY,
+    Name VARCHAR(50),
+    Address VARCHAR(100),
+    CountryID INT,
+    FOREIGN KEY (CountryID) REFERENCES Countries(ID)
+) ENGINE=InnoDB;
 
--- Create a table for storing product descriptions for different countries (Columns: ID, CountryID, ProductID, Description )
+-- Таблиця продуктів
+CREATE TABLE Products (
+    ID INT PRIMARY KEY,
+    Name VARCHAR(50)
+) ENGINE=InnoDB;
 
--- Create a table for storing logs. For now we don't need to save them, but we need to implement functionality (Columns: ID, Time, LogRecord)
+-- Інвентар товарів на складах
+CREATE TABLE ProductInventory (
+    ProductID INT,
+    WarehouseID INT,
+    Amount INT,
+    PRIMARY KEY (ProductID, WarehouseID),
+    FOREIGN KEY (ProductID) REFERENCES Products(ID),
+    FOREIGN KEY (WarehouseID) REFERENCES Warehouses(ID)
+) ENGINE=InnoDB;
 
--- Create a table for storing reporting data, which will be send to a separate application in the CSV format for analytics purposes (Columns:  Date, ProductName, Orders)
+-- Таблиця GeoIPCache
+-- Дані не важливі, продуктивність важлива, допустима втрата при перезапуску → ENGINE=MEMORY
+CREATE TABLE GeoIPCache (
+    ID INT PRIMARY KEY,
+    IPRange VARCHAR(50),
+    CountryID INT,
+    FOREIGN KEY (CountryID) REFERENCES Countries(ID)
+) ENGINE=MEMORY;
+
+-- Таблиця ProductDescription
+-- Читання часте, зміни рідкісні, важливість даних висока → ENGINE=InnoDB
+CREATE TABLE ProductDescription (
+    ID INT PRIMARY KEY,
+    Description TEXT,
+    ProductID INT,
+    CountryID INT,
+    FOREIGN KEY (ProductID) REFERENCES Products(ID),
+    FOREIGN KEY (CountryID) REFERENCES Countries(ID)
+) ENGINE=InnoDB;
+
+-- Таблиця Logs
+-- Зберігати дані не обов'язково, просто приймати → ENGINE=BLACKHOLE
+CREATE TABLE Logs (
+    ID INT,
+    Timestamp DATETIME,
+    Message TEXT
+) ENGINE=BLACKHOLE;
+
+-- Таблиця ProductReporting
+-- Для імпорту з CSV, аналітики, зберігання даних → ENGINE=CSV
+CREATE TABLE ProductReporting (
+    Date DATE,
+    ProductName VARCHAR(100),
+    Orders INT
+) ENGINE=CSV;
