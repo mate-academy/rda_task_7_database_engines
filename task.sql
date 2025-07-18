@@ -8,10 +8,35 @@ CREATE TABLE Countries (
     PRIMARY KEY (ID)
 ) ENGINE=InnoDB;
 
--- Create a table for caching GeoIP data (Columns: ID, IP Range, CountryID)
+-- 3. GeoIPCache
+-- Дані кешуються, можна втратити після рестарту → ENGINE=MEMORY
+CREATE TABLE GeoIPCache (
+    ID INT PRIMARY KEY,
+    IPRange VARCHAR(50),
+    CountryID INT
+) ENGINE=MEMORY;
 
--- Create a table for storing product descriptions for different countries (Columns: ID, CountryID, ProductID, Description )
+-- 4. ProductDescription
+-- Таблиця з частими читаннями, мало оновлень → ENGINE=MyISAM
+CREATE TABLE ProductDescription (
+    ID INT PRIMARY KEY,
+    Description TEXT,
+    ProductID INT,
+    CountryID INT
+) ENGINE=MyISAM;
 
--- Create a table for storing logs. For now we don't need to save them, but we need to implement functionality (Columns: ID, Time, LogRecord)
+-- 5. Logs
+-- Нічого не зберігаємо, просто приймаємо дані → ENGINE=BLACKHOLE
+CREATE TABLE Logs (
+    ID INT PRIMARY KEY,
+    Timestamp DATETIME,
+    Message TEXT
+) ENGINE=BLACKHOLE;
 
--- Create a table for storing reporting data, which will be send to a separate application in the CSV format for analytics purposes (Columns:  Date, ProductName, Orders)
+-- 6. ProductReporting
+-- Дані експортуються у CSV-файл → ENGINE=CSV
+CREATE TABLE ProductReporting (
+    Date DATE,
+    ProductName VARCHAR(255),
+    Orders INT
+) ENGINE=CSV;
