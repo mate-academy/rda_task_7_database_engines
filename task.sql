@@ -21,7 +21,7 @@ CREATE TABLE ProductDescription (
     Description VARCHAR(100),
     ProductID INT,
     CountryID INT
-) ENGINE=MYISAM;
+) ENGINE=InnoDB;
 
 -- Create a table for storing logs. For now we don't need to save them, but we need to implement functionality (Columns: ID, Time, LogRecord)
 CREATE TABLE Logs (
