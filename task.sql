@@ -11,12 +11,11 @@ CREATE TABLE Countries (
 -- Create a table for caching GeoIP data (Columns: ID, IP Range, CountryID)
 CREATE TABLE GeoIPCache(
     ID INT,
-    IPRange INT,
+    IPRange VARCHAR(50),
     CountryID INT,
 
-    PRIMARY KEY (ID),
-    CONSTRAINT FK_IPRangeCountry FOREIGN KEY (CountryID) REFERENCES Countries(ID)
-) ENGINE=Memory;
+    PRIMARY KEY (ID)
+) ENGINE=MEMORY;
 
 -- Create a table for storing product descriptions for different countries (Columns: ID, CountryID, ProductID, Description )
 CREATE TABLE ProductDescription(
@@ -25,15 +24,14 @@ CREATE TABLE ProductDescription(
     CountryID INT,
     ProductID INT,
 
-    PRIMARY KEY (ID),
-    CONSTRAINT FK_ProductDescriptionCountry FOREIGN KEY (CountryID) REFERENCES Countries(ID)
+    PRIMARY KEY (ID)
 ) ENGINE=MyISAM;
 
 -- Create a table for storing logs. For now we don't need to save them, but we need to implement functionality (Columns: ID, Time, LogRecord)
 CREATE TABLE Logs(
     ID INT,
-    LogRecord VARCHAR(255),
-    Time TIMESTAMP,
+    Message VARCHAR(255),
+    Timestamp TIMESTAMP,
 
     PRIMARY KEY (ID)
 ) ENGINE=Blackhole;
@@ -42,5 +40,5 @@ CREATE TABLE Logs(
 CREATE TABLE ProductReporting(
     Date DATE NOT NULL,
     ProductName VARCHAR(50) NOT NULL,
-    Orders VARCHAR(50) NOT NULL
+    Orders INT NOT NULL
 ) ENGINE=CSV;
