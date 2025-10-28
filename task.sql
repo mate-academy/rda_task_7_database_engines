@@ -20,7 +20,9 @@ CREATE TABLE ProductDescription(
     ID INT,
     Description VARCHAR(100),
     CountryID INT,
+    ProductID INT,
     FOREIGN KEY (CountryID) REFERENCES Countries(ID) ON DELETE CASCADE,
+    FOREIGN KEY (ProductID) REFERENCES Products(ID) ON DELETE CASCADE,
     PRIMARY KEY (ID)
 ) ENGINE=MyISAM;
 
@@ -32,7 +34,6 @@ CREATE TABLE Logs(
 ) ENGINE=Blackhole;
 
 CREATE TABLE ProductReporting(
-    ID INT NOT NULL,
     Date DATE NOT NULL,
     ProductName VARCHAR(50) NOT NULL,
     Orders INT NOT NULL
