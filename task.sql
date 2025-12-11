@@ -31,15 +31,15 @@ CREATE TABLE ProductDescription (
 
 CREATE TABLE Logs (
     ID INT,
-    `Time` INT,
-    LogRecord VARCHAR(50),
+    Timestamp INT,
+    Message VARCHAR(50),
     PRIMARY KEY (ID)
 ) ENGINE=BLACKHOLE;
 
 -- Create a table for storing reporting data, which will be send to a separate application in the CSV format for analytics purposes (Columns:  Date, ProductName, Orders)
 
 CREATE TABLE ProductReporting (
-    ID INT NOT NULL,
+    ProductName VARCHAR(50) NOT NULL,
     `Date` DATE NOT NULL,
     Orders INT NOT NULL
 ) ENGINE=CSV;
