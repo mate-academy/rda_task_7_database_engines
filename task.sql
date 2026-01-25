@@ -15,7 +15,6 @@ CREATE TABLE GeoIPCache(
     IPRange VARCHAR(100),
     CountryID INT,
     PRIMARY KEY (ID),
-    FOREIGN KEY(CountryID) REFERENCES Countries(ID) ON DELETE CASCADE
 
 )ENGINE=MEMORY;
 -- Create a table for storing product descriptions for different countries (Columns: ID, CountryID, ProductID, Description )
@@ -26,8 +25,6 @@ CREATE TABLE ProductDescription(
     ProductID INT,
     CountryID INT,
     PRIMARY KEY (ID),
-    FOREIGN KEY (ProductID) REFERENCES ProductReporting(ID) ON DELETE CASCADE,
-    FOREIGN KEY (CountryID) REFERENCES Countries(ID) ON DELETE CASCADE
 
 )ENGINE=MyISAM;
 -- Create a table for storing logs. For now we don't need to save them, but we need to implement functionality (Columns: ID, Time, LogRecord)
