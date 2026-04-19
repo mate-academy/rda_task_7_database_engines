@@ -1,41 +1,45 @@
 CREATE DATABASE ShopDB;
 USE ShopDB;
 
--- Countries table (left as InnoDB)
+-- Create a table to store countries
 CREATE TABLE Countries (
-    ID INT PRIMARY KEY,
-    Name VARCHAR(50)
+    ID INT,
+    Name VARCHAR(50),
+    PRIMARY KEY (ID)
 ) ENGINE=InnoDB;
 
-
--- GeoIPCache → MEMORY (fast, ok to lose on restart)
+-- GeoIP cache: MEMORY engine for maximum performance
+-- Acceptable to lose data on server restart
 CREATE TABLE GeoIPCache (
-    ID INT PRIMARY KEY,
-    IPRange VARCHAR(45),
-    CountryID INT
+    ID INT,
+    IPRange VARCHAR(50),
+    CountryID INT,
+    PRIMARY KEY (ID)
 ) ENGINE=MEMORY;
 
-
--- ProductDescription → MyISAM (fast reads, no need for transactions)
+-- Product descriptions: MyISAM for read-heavy workloads
+-- Persistent storage protects against data loss on restart
 CREATE TABLE ProductDescription (
-    ID INT PRIMARY KEY,
+    ID INT,
     Description TEXT,
     ProductID INT,
-    CountryID INT
+    CountryID INT,
+    PRIMARY KEY (ID)
 ) ENGINE=MyISAM;
 
-
--- Logs → BLACKHOLE (accepts inserts, stores nothing)
+-- Logs: BLACKHOLE accepts writes but never stores them
+-- Ideal placeholder until the real logging system is ready
 CREATE TABLE Logs (
-    ID INT PRIMARY KEY,
-    Timestamp TIMESTAMP,
-    Message TEXT
+    ID INT,
+    Timestamp DATETIME,
+    Message TEXT,
+    PRIMARY KEY (ID)
 ) ENGINE=BLACKHOLE;
 
-
--- ProductReporting → CSV (for export/import to reporting system)
+-- Product reporting: CSV engine stores data as plain CSV files
+-- Allows the external reporting/dashboard tool to read raw data directly
 CREATE TABLE ProductReporting (
-    Date DATE,
-    ProductName VARCHAR(255),
-    Orders INT
+    Date DATE NOT NULL,
+    ProductName VARCHAR(100) NOT NULL,
+    Orders INT NOT NULL
 ) ENGINE=CSV;
