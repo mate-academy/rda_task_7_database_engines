@@ -11,7 +11,6 @@ CREATE TABLE GeoIPCache (
     ID INT,
     IPRange INT,
     CountryID INT,
-    FOREIGN KEY (CountryID) REFERENCES Countries(ID) ON DELETE NO ACTION,
     PRIMARY KEY (ID)
 ) ENGINE=MEMORY;
 
@@ -21,7 +20,7 @@ CREATE TABLE ProductDescription (
     ProductID INT,
     CountryID INT,
     PRIMARY KEY (ID)
-) ENGINE=MyISAM;
+) ENGINE=InnoDB;
 
 CREATE TABLE Logs (
     ID INT,
@@ -33,5 +32,5 @@ CREATE TABLE Logs (
 CREATE TABLE ProductReporting (
     Date DATE NOT NULL,
     ProductName VARCHAR(50) NOT NULL,
-    Orders VARCHAR(50) NOT NULL
+    Orders INT NOT NULL
 ) ENGINE=CSV;
