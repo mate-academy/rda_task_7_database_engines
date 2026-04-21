@@ -20,7 +20,7 @@ CREATE TABLE ProductDescription (
     ProductID INT NOT NULL,
     CountryID INT NOT NULL,
     PRIMARY KEY (ID)
-) ENGINE=InnoDB;
+) ENGINE=MyISAM;
 
 CREATE TABLE Logs (
     ID INT NOT NULL AUTO_INCREMENT,
@@ -34,11 +34,3 @@ CREATE TABLE ProductReporting (
     ProductName VARCHAR(50) NOT NULL,
     Orders INT NOT NULL
 ) ENGINE=CSV;
-
-CREATE TABLE ProductDescriptionArchive (
-    ID INT NOT NULL AUTO_INCREMENT,
-    Description VARCHAR(100) NOT NULL,
-    ProductID INT NOT NULL,
-    CountryID INT NOT NULL,
-    PRIMARY KEY (ID)
-) ENGINE=MyISAM;
