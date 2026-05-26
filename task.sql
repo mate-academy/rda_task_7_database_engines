@@ -9,9 +9,35 @@ CREATE TABLE Countries (
 ) ENGINE=InnoDB;
 
 -- Create a table for caching GeoIP data (Columns: ID, IP Range, CountryID)
+CREATE table GeoIPCache (
+	ID INT,
+    IPRange varchar(50),
+    CountryID varchar(50),
+    primary key (ID)
+) engine=MEMORY;
 
 -- Create a table for storing product descriptions for different countries (Columns: ID, CountryID, ProductID, Description )
+CREATE TABLE ProductDescription (
+    ID INT NOT NULL,
+    Description VARCHAR(500) NOT NULL,
+    ProductID INT NOT NULL,
+    CountryID INT NOT NULL,
+    PRIMARY KEY (ID),
+    FOREIGN KEY (CountryID) REFERENCES Countries(ID)
+) ENGINE = MyISAM;
 
 -- Create a table for storing logs. For now we don't need to save them, but we need to implement functionality (Columns: ID, Time, LogRecord)
+create table Logs (
+	ID INT,
+    Timestamp DATE,
+    Message varchar(100),
+    primary key (ID)
+)engine=BLACKHOLE;
+
 
 -- Create a table for storing reporting data, which will be send to a separate application in the CSV format for analytics purposes (Columns:  Date, ProductName, Orders)
+create table ProductReporting (
+	Date date NOT NULL,
+    ProductName varchar(50) NOT NULL,
+    Orders INT NOT NULL
+)engine=CSV;
