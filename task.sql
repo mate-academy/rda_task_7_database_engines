@@ -8,6 +8,34 @@ CREATE TABLE Countries (
     PRIMARY KEY (ID)
 ) ENGINE=InnoDB;
 
+CREATE TABLE GeoIPCache (
+    ID INT,
+    IPRange VARCHAR(50),
+    CountryID INT,
+    PRIMARY KEY (ID)
+) ENGINE=MEMORY;
+
+CREATE TABLE ProductDescription (
+    ID INT,
+    Description VARCHAR(100),
+    ProductID INT,
+    CountryID INT,
+    PRIMARY KEY (ID)
+) ENGINE=InnoDB;
+
+CREATE TABLE Logs (
+    ID INT,
+    Timestamp DATE,
+    Message VARCHAR(100),
+    PRIMARY KEY (ID)
+) ENGINE=BLACKHOLE;
+
+CREATE TABLE ProductReporting (
+    Date DATE NOT NULL,
+    ProductName VARCHAR(50) NOT NULL,
+    Orders INT NOT NULL
+) ENGINE=CSV;
+
 -- Create a table for caching GeoIP data (Columns: ID, IP Range, CountryID)
 
 -- Create a table for storing product descriptions for different countries (Columns: ID, CountryID, ProductID, Description )
