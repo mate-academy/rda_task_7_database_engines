@@ -11,7 +11,7 @@ SET @ProductDescriptionTable := (SELECT count(*)
 FROM   information_schema.TABLES
 WHERE  TABLE_SCHEMA = 'ShopDB'
 AND TABLE_NAME = 'ProductDescription'
-AND ENGINE = 'MyISAM'); 
+AND ENGINE = 'InnoDB');
 SELECT IF( @ProductDescriptionTable = 1, 'ProductDescription table found!', 'Error: unable to verify ProductDescription table');
 
 -- Verify Logs table
