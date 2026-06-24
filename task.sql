@@ -31,7 +31,7 @@ CREATE TABLE Logs (
 ) ENGINE=BLACKHOLE;
 
 CREATE TABLE ProductReporting (
-    Date DATE,
-    ProductName VARCHAR(20),
-    Orders INT
+    Date DATE NOT NULL,
+    ProductName VARCHAR(20) NOT NULL,
+    Orders INT NOT NULL
 ) ENGINE=CSV;
