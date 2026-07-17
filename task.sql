@@ -9,9 +9,9 @@ CREATE TABLE Countries (
     PRIMARY KEY (ID)
 ) ENGINE=InnoDB;
 CREATE TABLE GeoIPCache (
-    ID INT,
-    IPRange VARCHAR(50),
-    CountryID INT,
+    ID INT NOT NULL,
+    IPRange VARCHAR(50) NOT NULL,
+    CountryID INT NOT NULL,
     PRIMARY KEY (ID)
 ) ENGINE=MEMORY;
 CREATE TABLE ProductDescription (
@@ -20,7 +20,7 @@ CREATE TABLE ProductDescription (
     ProductID INT,
     CountryID INT,
     PRIMARY KEY (ID)
-) ENGINE=MyISAM ;
+) ENGINE=MyISAM;
 CREATE TABLE Logs (
     ID INT,
     Timestamp VARCHAR(50),
