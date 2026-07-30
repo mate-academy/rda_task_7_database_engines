@@ -38,6 +38,6 @@ CREATE TABLE ProductReporting (
     Date Date,
     ProductName VARCHAR(50),
     Message VARCHAR(100),
-    Orders VARCHAR(100)
+    Orders VARCHAR(100),
     PRIMARY KEY (ID)
 ) ENGINE=CSV;
