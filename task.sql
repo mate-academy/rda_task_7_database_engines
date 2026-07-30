@@ -34,7 +34,7 @@ CREATE TABLE Logs (
 ) ENGINE=BLACKHOLE;
 -- Create a table for storing reporting data, which will be send to a separate application in the CSV format for analytics purposes (Columns:  Date, ProductName, Orders)
 CREATE TABLE ProductReporting (
-    Date Date,
+    Date DATETIME,
     ProductName VARCHAR(50),
     Orders VARCHAR(100)
 ) ENGINE=CSV;
