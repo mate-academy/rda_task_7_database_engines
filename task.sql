@@ -28,7 +28,7 @@ CREATE TABLE ProductDescription (
 -- Create a table for storing logs. For now we don't need to save them, but we need to implement functionality (Columns: ID, Time, LogRecord)
 CREATE TABLE Logs (
     ID INT,
-    Timestamp Date.Timestamp,
+    Timestamp DATETIME,
     Message VARCHAR(100),
     PRIMARY KEY (ID)
 ) ENGINE=BLACKHOLE;
