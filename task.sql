@@ -13,7 +13,6 @@ CREATE TABLE GeoIPCache (
     ID INT,
     IPRange VARCHAR(50),
     CountryID INT,
-    FOREIGN KEY (CountryID) REFERENCES Countries(ID) ON DELETE NO ACTION,
     PRIMARY KEY (ID)
 ) ENGINE=MEMORY;
 
@@ -25,7 +24,7 @@ CREATE TABLE ProductDescription (
     CountryID INT,
     FOREIGN KEY (CountryID) REFERENCES Countries(ID) ON DELETE NO ACTION,
     PRIMARY KEY (ID)
-) ENGINE=MyISAM;
+) ENGINE=InnoDB;
 -- Create a table for storing logs. For now we don't need to save them, but we need to implement functionality (Columns: ID, Time, LogRecord)
 CREATE TABLE Logs (
     ID INT,
@@ -37,7 +36,5 @@ CREATE TABLE Logs (
 CREATE TABLE ProductReporting (
     Date Date,
     ProductName VARCHAR(50),
-    Message VARCHAR(100),
     Orders VARCHAR(100),
-    PRIMARY KEY (ID)
 ) ENGINE=CSV;
