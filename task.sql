@@ -5,29 +5,29 @@ CREATE TABLE Countries (
     ID INT,
     Name VARCHAR(50),
     PRIMARY KEY (ID)
-) ENGINE=InnoDB;
+)ENGINE=InnoDB;
 
 CREATE TABLE GeoIPCache(
     ID INT,
     IPRange VARCHAR(50),
     CountryID INT
-) ENGINE=Memory;
+)ENGINE=Memory;
 
 CREATE TABLE ProductDescription(
     ID INT,
-    CountryID INT,
+    Description VARCHAR(100),
     ProductID INT,
-    Description VARCHAR(100)
-) ENGINE=MyISAM;
+    CountryID INT
+)ENGINE=MyISAM;
 
 CREATE TABLE Logs(
     ID INT,
     Timestamp TIMESTAMP,
     Message VARCHAR(100)
-) ENGINE=BLACKHOLE;
+)ENGINE=BLACKHOLE;
 
 CREATE TABLE ProductReporting(
     Date DATE,
     ProductName VARCHAR(50),
     Orders INT
-) ENGINE=CSV;
+)ENGINE=CSV;
