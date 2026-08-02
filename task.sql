@@ -18,7 +18,7 @@ CREATE TABLE ProductDescription(
     Description VARCHAR(100),
     ProductID INT,
     CountryID INT
-)ENGINE=InnoDB;
+)ENGINE=MyISAM;
 
 CREATE TABLE Logs(
     ID INT,
