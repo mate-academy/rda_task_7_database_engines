@@ -19,9 +19,9 @@ CREATE TABLE GeoIPCache (
 -- Create a table for storing product descriptions for different countries (Columns: ID, CountryID, ProductID, Description )
 CREATE TABLE ProductDescription (
     ID INT,
-    CountryID INT,
-    ProductID INT,
     Description TEXT,
+    ProductID INT,
+    CountryID INT,
     PRIMARY KEY (ID),
     FOREIGN KEY (CountryID) REFERENCES Countries(ID)
 ) ENGINE=InnoDB;
