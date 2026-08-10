@@ -16,11 +16,11 @@ CREATE TABLE GeoIPCache (
 
 CREATE TABLE ProductDescription (
     ID INT,
-    CountryID INT,
-    ProductID INT,
     Description VARCHAR(255),
+    ProductID INT,
+    CountryID INT,
     PRIMARY KEY (ID)
-) ENGINE=InnoDB;
+) ENGINE=MyISAM;
 
 CREATE TABLE Logs (
     ID INT,
