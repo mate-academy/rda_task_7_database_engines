@@ -20,12 +20,12 @@ CREATE TABLE ProductDescription (
     ProductID INT,
     Description VARCHAR(255),
     PRIMARY KEY (ID)
-) ENGINE=MyISAM;
+) ENGINE=InnoDB;
 
 CREATE TABLE Logs (
     ID INT,
-    Time DATETIME,
-    LogRecord VARCHAR(255),
+    Timestamp DATETIME,
+    Message VARCHAR(255),
     PRIMARY KEY (ID)
 ) ENGINE=BLACKHOLE;
 
