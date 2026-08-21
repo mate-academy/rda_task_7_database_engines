@@ -23,7 +23,7 @@ CREATE TABLE ProductDescription (
     ProductID INT,
     Description VARCHAR(100),
     PRIMARY KEY (ID)
-) ENGINE=InnoDB;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE Logs (
@@ -31,7 +31,7 @@ CREATE TABLE Logs (
     Timestamp DATETIME,
     Message VARCHAR(100),
     PRIMARY KEY (ID)
-) ENGINE=Blackhole;
+) ENGINE=BLACKHOLE;
 
 
 CREATE TABLE ProductReporting (
