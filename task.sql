@@ -23,7 +23,7 @@ CREATE TABLE ProductDescription (
     ProductID INT,
     Description VARCHAR(100),
     PRIMARY KEY (ID)
-) ENGINE=MyISAM;
+) ENGINE=InnoDB;
 
 
 CREATE TABLE Logs (
