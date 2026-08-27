@@ -41,3 +41,5 @@ CREATE TABLE ProductReporting (
     ProductName VARCHAR(255) NOT NULL,
     Orders INT NOT NULL
 ) ENGINE=CSV;
+
+
