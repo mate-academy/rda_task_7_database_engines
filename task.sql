@@ -11,8 +11,8 @@ CREATE TABLE Countries (
 
 CREATE TABLE GeoIPCache (
     ID INT AUTO_INCREMENT,
-    IPRange VARCHAR(50),
-    CountryID INT,
+    IPRange VARCHAR(50) NOT NULL DEFAULT '',
+    CountryID INT NOT NULL DEFAULT 0,
     PRIMARY KEY (ID)
 ) ENGINE = Memory;
 
