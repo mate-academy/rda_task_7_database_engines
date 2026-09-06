@@ -1,6 +1,8 @@
-CREATE DATABASE ShopDB; 
-USE ShopDB; 
+DROP DATABASE IF EXISTS ShopDB;
+CREATE DATABASE ShopDB;
+USE ShopDB;
 
+-- Create a table to store countries
 CREATE TABLE Countries (
     ID INT,
     Name VARCHAR(50),
@@ -30,7 +32,7 @@ CREATE TABLE Logs (
 ) ENGINE = Blackhole;
 
 CREATE TABLE ProductReporting (
-    Date DATE,
-    ProductName VARCHAR(50),
-    Orders INT
+    Date DATE NOT NULL,
+    ProductName VARCHAR(50) NOT NULL,
+    Orders INT NOT NULL
 ) ENGINE = CSV;
