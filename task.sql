@@ -4,8 +4,8 @@ USE ShopDB;
 
 -- Create a table to store countries
 CREATE TABLE Countries (
-    ID INT,
-    Name VARCHAR(50),
+    ID INT NOT NULL,
+    Name VARCHAR(50) NOT NULL,
     PRIMARY KEY (ID)
 ) ENGINE=InnoDB;
 
@@ -18,16 +18,16 @@ CREATE TABLE GeoIPCache (
 
 CREATE TABLE ProductDescription (
     ID INT AUTO_INCREMENT,
-    Description TEXT,
-    ProductID INT,
-    CountryID INT,
+    Description TEXT NOT NULL,
+    ProductID INT NOT NULL,
+    CountryID INT NOT NULL,
     PRIMARY KEY (ID)
 ) ENGINE = InnoDB;
 
 CREATE TABLE Logs (
     ID INT AUTO_INCREMENT,
-    Timestamp TIMESTAMP,
-    Message TEXT,
+    Timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    Message TEXT NOT NULL,
     PRIMARY KEY (ID)
 ) ENGINE = Blackhole;
 
