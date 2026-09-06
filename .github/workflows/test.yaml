@@ -21,7 +21,7 @@ jobs:
       run: docker run --name mysql -e MYSQL_ROOT_PASSWORD=P@ssw0rd -v $(pwd):/scripts -d mysql:8.0-debian
 
     - name: Wait for the database service to start 
-      run: sleep 15 
+      run: sleep 35
 
     - name: Run the task code
       run: docker exec mysql sh -c 'mysql -u root -pP@ssw0rd < /scripts/task.sql'
