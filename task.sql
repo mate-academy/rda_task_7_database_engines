@@ -1,38 +1,35 @@
-DROP DATABASE IF EXISTS ShopDB;
-CREATE DATABASE ShopDB;
+CREATE DATABASE IF NOT EXISTS ShopDB;
 USE ShopDB;
 
--- Create a table to store countries
 CREATE TABLE Countries (
-    ID INT NOT NULL,
-    Name VARCHAR(50) NOT NULL,
+    ID INT,
+    Name VARCHAR(50),
     PRIMARY KEY (ID)
 ) ENGINE=InnoDB;
 
 CREATE TABLE GeoIPCache (
-    ID INT AUTO_INCREMENT,
-    IPRange VARCHAR(50) NOT NULL DEFAULT '',
-    CountryID INT NOT NULL DEFAULT 0,
+    ID INT,
+    IPRange VARCHAR(50),
+    CountryID INT,
     PRIMARY KEY (ID)
-) ENGINE = Memory;
+) ENGINE=MEMORY;
 
 CREATE TABLE ProductDescription (
-    ID INT AUTO_INCREMENT,
-    Description TEXT NOT NULL,
-    ProductID INT NOT NULL,
-    CountryID INT NOT NULL,
+    ID INT,
+    Description VARCHAR(255),
+    ProductID INT,
+    CountryID INT,
     PRIMARY KEY (ID)
-) ENGINE = InnoDB;
+) ENGINE=MyISAM;
 
 CREATE TABLE Logs (
-    ID INT AUTO_INCREMENT,
-    Timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    Message TEXT NOT NULL,
-    PRIMARY KEY (ID)
-) ENGINE = Blackhole;
+    ID INT,
+    Timestamp DATETIME,
+    Message VARCHAR(255)
+) ENGINE=BLACKHOLE;
 
 CREATE TABLE ProductReporting (
-    Date DATE NOT NULL,
-    ProductName VARCHAR(50) NOT NULL,
-    Orders INT NOT NULL
-) ENGINE = CSV;
+    Date DATE,
+    ProductName VARCHAR(50),
+    Orders INT
+) ENGINE=CSV;
