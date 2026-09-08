@@ -23,7 +23,6 @@ CREATE TABLE ProductDescription (
     CountryID INT,
     FOREIGN KEY (CountryID) REFERENCES Countries(ID) ON DELETE NO ACTION,
     ProductID INT,
-    FOREIGN KEY (ProductID) REFERENCES Products(ID) ON DELETE NO ACTION,
     Description VARCHAR(255),
     PRIMARY KEY (ID)
 ) ENGINE=MyISAM;
