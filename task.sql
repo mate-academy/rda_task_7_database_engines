@@ -13,7 +13,6 @@ CREATE TABLE GeoIPCache (
     ID INT,
     IPRange VARCHAR(50),
     CountryID INT,
-	FOREIGN KEY (CountryID) REFERENCES Countries(ID) ON DELETE NO ACTION,
     PRIMARY KEY (ID)
 ) ENGINE=Memory;
 
@@ -23,16 +22,14 @@ CREATE TABLE ProductDescription (
     Description VARCHAR(50),
     ProductID INT,
     CountryID INT,
-	FOREIGN KEY (CountryID) REFERENCES Countries(ID) ON DELETE NO ACTION,
     PRIMARY KEY (ID)
-) ENGINE=InnoDB;
+) ENGINE=MyISAM;
 
 -- Create a table for storing logs. For now we don't need to save them, but we need to implement functionality (Columns: ID, Time, LogRecord)
 CREATE TABLE Logs (
     ID INT,
     Timestamp TIMESTAMP,
-    Message VARCHAR(50),
-    PRIMARY KEY (ID)
+    Message VARCHAR(50)
 ) ENGINE=Blackhole;
 
 -- Create a table for storing reporting data, which will be send to a separate application in the CSV format for analytics purposes (Columns:  Date, ProductName, Orders)
