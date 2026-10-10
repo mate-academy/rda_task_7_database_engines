@@ -1,17 +1,34 @@
-CREATE DATABASE ShopDB; 
-USE ShopDB; 
+-- Create database if it does not exist and switch to it
+CREATE DATABASE IF NOT EXISTS ShopDB;
+USE ShopDB;
 
--- Create a table to store countries 
-CREATE TABLE Countries (
+-- Create GeoIPCache table with MEMORY engine for maximum performance (data loss on restart is fine)
+CREATE TABLE IF NOT EXISTS GeoIPCache (
     ID INT,
-    Name VARCHAR(50),
+    IPRange VARCHAR(50),
+    CountryID INT,
     PRIMARY KEY (ID)
-) ENGINE=InnoDB;
+) ENGINE=MEMORY;
 
--- Create a table for caching GeoIP data (Columns: ID, IP Range, CountryID)
+-- Create ProductDescription table with InnoDB engine for data protection and high read performance
+CREATE TABLE IF NOT EXISTS ProductDescription (
+    ID INT,
+    Description TEXT,
+    ProductID INT,
+    CountryID INT,
+    PRIMARY KEY (ID)
+) ENGINE=MyISAM;
 
--- Create a table for storing product descriptions for different countries (Columns: ID, CountryID, ProductID, Description )
+-- Create Logs table with BLACKHOLE engine to accept data without storing it
+CREATE TABLE IF NOT EXISTS Logs (
+    ID INT,
+    Timestamp TIMESTAMP,
+    Message TEXT
+) ENGINE=BLACKHOLE;
 
--- Create a table for storing logs. For now we don't need to save them, but we need to implement functionality (Columns: ID, Time, LogRecord)
-
--- Create a table for storing reporting data, which will be send to a separate application in the CSV format for analytics purposes (Columns:  Date, ProductName, Orders)
+-- Create ProductReporting table with CSV engine to store data as a comma-separated flat file
+CREATE TABLE IF NOT EXISTS ProductReporting (
+    Date DATE NOT NULL,
+    ProductName VARCHAR(100) NOT NULL,
+    Orders INT NOT NULL
+) ENGINE=CSV;
