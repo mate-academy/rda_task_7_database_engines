@@ -25,7 +25,7 @@ CREATE TABLE ProductDescription (
 
 CREATE TABLE Logs (
     ID INT,
-    Timestamp TIME,
+    Timestamp TIMESTAMP,
     Message VARCHAR(100),
     PRIMARY KEY (ID)
 ) ENGINE=Blackhole;
