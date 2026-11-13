@@ -10,7 +10,7 @@ CREATE TABLE Countries (
 
 CREATE TABLE GeoIPCache (
     ID INT,
-    IP_Range INT,
+    IPRange INT,
     CountryID INT,
     PRIMARY KEY (ID)
 ) ENGINE=Memory;
@@ -25,8 +25,8 @@ CREATE TABLE ProductDescription (
 
 CREATE TABLE Logs (
     ID INT,
-    Time TIME,
-    LogRecord VARCHAR(100),
+    Timestamp TIME,
+    Message VARCHAR(100),
     PRIMARY KEY (ID)
 ) ENGINE=Blackhole;
 
